@@ -10,7 +10,7 @@ import MainCard from 'ui-component/cards/MainCard';
 const ExamTrainerPage = () => (
   <MainCard title="Exam trainer">
     <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={10}>
         <QuestionCard></QuestionCard>
       </Grid>
     </Grid>

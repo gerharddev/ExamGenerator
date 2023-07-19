@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // material-ui
 import { styled } from '@mui/material/styles';
 import { Box, FormControlLabel, Grid, Radio, RadioGroup, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -13,8 +14,8 @@ import { useTheme } from '@mui/system';
 // assets
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: theme.palette.info.main,
-  color: '#fff',
+  backgroundColor: theme.palette.primary.light,
+  color: theme.palette.grey[600],
   overflow: 'hidden'
 }));
 
@@ -25,9 +26,9 @@ const QuestionCard = ({ isLoading }) => {
 
   // const [anchorEl, setAnchorEl] = useState(null);
 
-  // const handleClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const handleClick = () => {
+    alert('Check answer');
+  };
 
   // const handleClose = () => {
   //   setAnchorEl(null);
@@ -52,52 +53,50 @@ const QuestionCard = ({ isLoading }) => {
                 </Grid>
               </Grid>
               <Grid item sx={{ mb: 1.25 }}>
-                <RadioGroup aria-label="gender" name="gender1">
+                <RadioGroup aria-label="question" name="question" sx={{
+                  fontSize: '1rem',
+                  fontWeight: 500,
+                  color: theme.palette.primary,
+                  ml: '20px',
+                  mt: '10px'
+                }}>
                   <FormControlLabel
-                    sx={{
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      color: theme.palette.secondary[200]
-                    }}
                     value="total_earning1"
                     control={<Radio />}
                     label="hier Religionsfreiheit gilt."
                   />
                   <FormControlLabel
-                    sx={{
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      color: theme.palette.secondary[200]
-                    }}
                     value="total_earning2"
                     control={<Radio />}
                     label="die Menschen Steuern zahlen."
                   />
                   <FormControlLabel
-                    sx={{
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      color: theme.palette.secondary[200]
-                    }}
                     value="total_earning3"
                     control={<Radio />}
                     label="die Menschen das Wahlrecht haben."
                   />
                   <FormControlLabel
-                    sx={{
-                      fontSize: '1rem',
-                      fontWeight: 500,
-                      color: theme.palette.secondary[200]
-                    }}
                     value="total_earning4"
                     control={<Radio />}
                     label="hier Meinungsfreiheit gilt."
                   />
                 </RadioGroup>
               </Grid>
+              <Grid >
+                <Grid container justifyContent="flex-end">
+                  <Button
+                    disableElevation
+                    size="medium"
+                    sx={{ color: 'primary', backgroundColor: theme.palette.grey[300], mr: '20px' }}
+                    onClick={handleClick}
+                  >
+                    Check
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Box>
-        </CardWrapper>
+        </CardWrapper >
       )}
     </>
   );
